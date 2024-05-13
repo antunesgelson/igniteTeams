@@ -1,7 +1,8 @@
 import { Button } from "@/components/Button";
-import { Header } from "@/components/Header";
+import { Header } from '@/components/Header/Header';
 import { HightLight } from "@/components/Highlight";
 import { Input } from "@/components/Input";
+import { useNavigation } from "@react-navigation/native";
 import { Container, Content, Icon } from "./styles";
 
 type Props = {
@@ -9,6 +10,14 @@ type Props = {
 }
 
 export function NewGroup() {
+
+    const navigation = useNavigation()
+
+    function handleNew() {
+        navigation.navigate('players', { group: "Rocket" })
+
+    }
+
     return (
 
         <Container>
@@ -22,14 +31,15 @@ export function NewGroup() {
                 />
 
                 <Input
-                placeholder="Nome da turma"
-                
-                
+                    placeholder="Nome da turma"
+
+
                 />
 
                 <Button
-                    style={{ marginTop: 24 }}
                     title="Criar"
+                    style={{ marginTop: 20 }}
+                    onPress={handleNew}
                 />
             </Content>
         </Container>

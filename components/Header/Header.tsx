@@ -1,14 +1,8 @@
 import logoImg from '@/assets/logo/logo.png';
-
 import { useNavigation } from '@react-navigation/native';
-
+import { Props } from '.';
 import { BackButton, BackIcon, Container, Logo } from "./styles";
 
-
-
-type Props = {
-    showBackButton?: boolean;
-}
 
 
 export function Header({ showBackButton = false }: Props) {
@@ -16,7 +10,8 @@ export function Header({ showBackButton = false }: Props) {
     const navigation = useNavigation();
 
     function handleGoBack() {
-        navigation.goBack()
+        // navigation.navigate('groups')
+        // navigation.goBack()
     }
 
 
@@ -25,12 +20,11 @@ export function Header({ showBackButton = false }: Props) {
             {showBackButton &&
                 <BackButton onPress={handleGoBack}>
                     <BackIcon />
-                </BackButton>
-            }
+                </BackButton>}
 
 
 
             <Logo source={logoImg} />
         </Container>
-    )
+    );
 }
